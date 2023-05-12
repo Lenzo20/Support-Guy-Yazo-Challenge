@@ -4,7 +4,7 @@ import Logger from '@ioc:Adonis/Core/Logger'
 export default class extends BaseSchema {
   protected tableName = 'schedule_tags'
 
-  public async up () {
+  public async up() {
     if (!(await this.schema.hasTable(this.tableName)))
       this.schema.createTable(this.tableName, (table) => {
         table.increments('id').unsigned().primary().index('schedule_tags_id_index')
@@ -31,10 +31,10 @@ export default class extends BaseSchema {
         table.timestamp('created_at', { useTz: true }).defaultTo('now()')
         table.timestamp('updated_at', { useTz: true }).defaultTo('now()')
       })
-      else Logger.info('ScheduleTags migration already running')
+    else Logger.info('ScheduleTags migration already running')
   }
 
-  public async down () {
+  public async down() {
     this.schema.dropTable(this.tableName)
   }
 }

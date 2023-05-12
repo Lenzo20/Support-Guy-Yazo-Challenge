@@ -5,16 +5,12 @@ import { ScheduleServices } from '../../Services'
 
 export default class SchedulesController {
   public async list({ request, response }: HttpContextContract): Promise<void> {
-    console.clear()
     const page = request.input('page', 1)
     const perPage = request.input('per_page', 10)
     const search = request.input('search', '')
     const scheduleServices = container.resolve(ScheduleServices)
 
-    console.log('search', search)
-
     const schedules = await scheduleServices.list({ page, perPage, search })
-    console.log('schedules', schedules)
     return response.json(schedules)
   }
 }
