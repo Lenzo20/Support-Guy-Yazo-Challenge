@@ -7,4 +7,5 @@ export interface SearchBarProps {
   defaultValue?: string;
   inputId?: string;
   style?: CSSProperties;
+  value?: string;
 }

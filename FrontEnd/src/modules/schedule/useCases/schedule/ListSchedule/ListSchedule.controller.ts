@@ -39,8 +39,10 @@ export const useListScheduleController = ({
 
         return response;
       } catch (err) {
+        console.log(err);
         changeStatus('error');
       }
+
       return {} as IListScheduleAPI;
     },
     [changeStatus, execute]

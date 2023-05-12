@@ -20,7 +20,7 @@ export default class UserServices {
     private usersRepository: IUser.Repository,
     @inject('RolesRepository')
     private rolesRepository: IRole.Repository
-  ) {}
+  ) { }
 
   public async list({
     page = 1,

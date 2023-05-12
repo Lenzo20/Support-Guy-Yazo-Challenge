@@ -8,9 +8,25 @@ export const Header = ({ title, message }: HeaderProps) => {
 
   const texts = message ? message.split('\\n') : [''];
   return (
-    <Flex width="100%" flexDirection="column" position="fixed" top="0" zIndex="2">
-      <Flex bg="black.500" p={1} alignItems="center" justifyContent="space-between">
-        <Button bg="yellow.500" h={6} color="black.500" onClick={() => navigate('/')}>
+    <Flex
+      width="100%"
+      flexDirection="column"
+      position="fixed"
+      top="0"
+      zIndex="2"
+    >
+      <Flex
+        bg="black.500"
+        p={1}
+        alignItems="center"
+        justifyContent="space-between"
+      >
+        <Button
+          bg="yellow.500"
+          h={6}
+          color="black.500"
+          onClick={() => navigate('/')}
+        >
           Voltar
         </Button>
         {title && (
@@ -20,11 +36,13 @@ export const Header = ({ title, message }: HeaderProps) => {
         )}
         <HelperMessage>
           <>
-            {texts.map((text) => {
-              return (<>
-                <Text>{text}</Text>
-                <br></br>
-              </>)
+            {texts.map(text => {
+              return (
+                <>
+                  <Text>{text}</Text>
+                  <br></br>
+                </>
+              );
             })}
           </>
         </HelperMessage>

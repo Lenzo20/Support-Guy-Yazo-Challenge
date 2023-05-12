@@ -8,7 +8,7 @@ import { useHandleSchedule } from '../handlers/schedule.handlers';
 export const Schedule = () => {
   const { schedules, listSchedule, status } = useSchedule();
   const { handleSchedule } = useHandleSchedule();
-  const [search, setSearch] = useState<string>();
+  const [search, setSearch] = useState<string>('');
 
   const loadCategories = useCallback(
     (p = 1) => {
@@ -16,6 +16,16 @@ export const Schedule = () => {
     },
     [listSchedule]
   );
+
+  const schedulesLowCase = search.toLowerCase();
+
+  let filterSchedule;
+
+  if (schedulesLowCase.length > 0) {
+    filterSchedule = schedules.filter(sche =>
+      sche.title.toLowerCase().includes(schedulesLowCase)
+    );
+  } else filterSchedule = schedules;
 
   useEffect(() => {
     loadCategories();
@@ -26,9 +36,12 @@ export const Schedule = () => {
       <SearchBar
         placeholder="Pesquise por nome ou local da agenda"
         isSearching={status === 'searching'}
-        onChange={(value: string) => setSearch(value)}
+        defaultValue=""
+        onChange={(e: string) => {
+          setSearch(e);
+        }}
       />
-      {schedules.map(schedule => (
+      {filterSchedule.map(schedule => (
         <ScheduleCard data={handleSchedule(schedule)} />
       ))}
     </Flex>

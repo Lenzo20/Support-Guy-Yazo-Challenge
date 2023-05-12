@@ -10,6 +10,7 @@ export const SearchBar = ({
   defaultValue,
   inputId,
   style,
+  value,
   ...rest
 }: SearchBarProps) => {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -31,6 +32,7 @@ export const SearchBar = ({
           placeholder={placeholder}
           color="blue.400"
           onChange={debounceEvent(onSearchChange, 500)}
+          value={value}
           variant="filled"
           bg="white.800"
           borderEndRadius={isSearching ? 0 : 8}
