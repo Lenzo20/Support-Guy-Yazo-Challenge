@@ -3,7 +3,7 @@
 ## Todas as agendas
 
 ```sql
-SELECT * FROM schedules;SELECT * FROM schedules;
+SELECT * FROM schedules;
 ```
 
 ## Todas as agendas com a tag "Dev"
