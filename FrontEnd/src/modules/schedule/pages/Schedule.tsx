@@ -24,7 +24,7 @@ export const Schedule = () => {
   if (schedulesLowCase.length > 0) {
     filterSchedule = schedules.filter(
       sche =>
-        sche.title.toLowerCase().includes(schedulesLowCase) ||
+        (sche.title.toLowerCase().includes(schedulesLowCase) ||
         sche.place.toLowerCase().includes(schedulesLowCase)
     );
   } else filterSchedule = schedules;
