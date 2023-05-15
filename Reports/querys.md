@@ -20,7 +20,7 @@ WHERE schedule_tags.tag_id = 1;
 ```sql
 SELECT schedules.*
 FROM schedules
-WHERE schedules.start_time = '%2023-05-10%';
+WHERE schedules.start_time = '2023-05-10 08:00:00.000 -03:00';;
 ```
 
 ## Todas as agendas que o usuário Luís participou
